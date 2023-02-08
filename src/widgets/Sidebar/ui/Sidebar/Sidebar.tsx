@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import cls from './Sidebar.module.scss';
 import { ThemeToggler } from 'widgets/ThemeToggler';
+import { LangToggler } from 'widgets/LangToggler';
 
 interface SidebarProps {
   className?: string;
@@ -15,6 +16,7 @@ export const Sidebar = ({ className }: SidebarProps) => {
       <button onClick={() => setCollapsed(prev => !prev)}>toggle</button>
       <div className={cls.togglers}>
         <ThemeToggler />
+        <LangToggler className={cls.lang} />
       </div>
     </div>
   );
