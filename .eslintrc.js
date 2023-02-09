@@ -3,14 +3,14 @@ module.exports = {
     browser: true,
     es2021: true,
   },
-  extends: ['plugin:react/jsx-runtime', 'standard-with-typescript'],
+  extends: ['plugin:react/jsx-runtime', 'standard-with-typescript', 'plugin:i18next/recommended'],
   overrides: [],
   parserOptions: {
     ecmaVersion: 'latest',
     sourceType: 'module',
     project: 'tsconfig.json',
   },
-  plugins: ['react'],
+  plugins: ['react', 'i18next'],
   rules: {
     'comma-dangle': [
       'error',
@@ -32,6 +32,7 @@ module.exports = {
     '@typescript-eslint/comma-dangle': 'off',
     '@typescript-eslint/space-before-function-paren': 'off',
     '@typescript-eslint/no-confusing-void-expression': 'off',
+    'i18next/no-literal-string': 2,
   },
   globals: {
     __IS_DEV__: true,
