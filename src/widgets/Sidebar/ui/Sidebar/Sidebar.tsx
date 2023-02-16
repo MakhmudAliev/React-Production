@@ -15,8 +15,10 @@ export const Sidebar = ({ className }: SidebarProps) => {
   const { t } = useTranslation();
 
   return (
-    <div className={classNames(cls.Sidebar, { [cls.collapsed]: collapsed }, [className])}>
-      <button onClick={() => setCollapsed(prev => !prev)}>{t('toggle')}</button>
+    <div data-testid="sidebar" className={classNames(cls.Sidebar, { [cls.collapsed]: collapsed }, [className])}>
+      <button data-testid="sidebar-toggle" onClick={() => setCollapsed(prev => !prev)}>
+        {t('toggle')}
+      </button>
       <div className={cls.togglers}>
         <ThemeToggler />
         <LangToggler className={cls.lang} />

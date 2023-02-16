@@ -3,6 +3,8 @@
  * https://jestjs.io/docs/configuration
  */
 
+import path from 'path';
+
 export default {
   // The test environment that will be used for testing
   testEnvironment: 'jsdom',
@@ -81,6 +83,7 @@ export default {
     // '\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$':
     //   '<rootDir>/__mocks__/fileMock.js',
     '\\.s?css$': 'identity-obj-proxy',
+    '\\.svg': path.resolve(__dirname, 'jestEmptyComponent.tsx'),
   },
 
   // A map from regular expressions to module names or to arrays of module names that allow to stub out resources with a single module
@@ -164,7 +167,7 @@ export default {
   // testRunner: "jest-circus/runner",
 
   // A map from regular expressions to paths to transformers
-  // transform: undefined,
+  // transform: { '\\.[jt]sx?$': 'babel-jest', '^.+\\.svg$': '<rootDir>config/jest/transforms/svgTransform.ts' },
 
   // An array of regexp pattern strings that are matched against all source file paths, matched files will skip transformation
   // transformIgnorePatterns: [
