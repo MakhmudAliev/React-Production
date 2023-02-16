@@ -73,9 +73,15 @@ export default {
 
   // An array of directory names to be searched recursively up from the requiring module's location
   moduleDirectories: ['node_modules'],
+  modulePaths: ['<rootDir>src'],
 
   // An array of file extensions your modules use
   moduleFileExtensions: ['js', 'mjs', 'cjs', 'jsx', 'ts', 'tsx', 'json', 'node'],
+  moduleNameMapper: {
+    // '\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$':
+    //   '<rootDir>/__mocks__/fileMock.js',
+    '\\.s?css$': 'identity-obj-proxy',
+  },
 
   // A map from regular expressions to module names or to arrays of module names that allow to stub out resources with a single module
   // moduleNameMapper: {},
@@ -125,7 +131,7 @@ export default {
   // setupFiles: [],
 
   // A list of paths to modules that run some code to configure or set up the testing framework before each test
-  // setupFilesAfterEnv: [],
+  setupFilesAfterEnv: ['<rootDir>config/jest/setupTests.ts'],
 
   // The number of seconds after which a test is considered as slow and reported as such in the results.
   // slowTestThreshold: 5,

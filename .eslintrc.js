@@ -11,7 +11,7 @@ module.exports = {
     sourceType: 'module',
     project: 'tsconfig.json',
   },
-  plugins: ['react', 'i18next'],
+  plugins: ['react', 'i18next', 'jest', '@typescript-eslint'],
   rules: {
     'comma-dangle': [
       'error',
