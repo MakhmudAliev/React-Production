@@ -11,8 +11,8 @@ export const PageError = ({ className }: PageErrorProps) => {
   const { t } = useTranslation();
   return (
     <div className={classNames(cls.PageError, {}, [className])}>
-      <p>{t('Something went wrong')}</p>
-      <Button onClick={() => location.reload()}>{t('Reaload Page')}</Button>
+      <p className={cls.errorMessage}>{t('Something went wrong')}</p>
+      <Button onClick={() => location.reload()}>{t('Reload Page')}</Button>
     </div>
   );
 };

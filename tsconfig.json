@@ -15,5 +15,12 @@
     "allowSyntheticDefaultImports": true
   },
   "ts-node": { "compilerOptions": { "module": "CommonJS" } },
-  "include": ["src/**/*", "./config/jest/setupTests.ts"]
+  "include": [
+    "./src/**/*.ts",
+    "./src/**/*.tsx",
+    "./config/build",
+    "./webpack.config.ts",
+    "./config/jest",
+    "./config/storybook"
+  ]
 }

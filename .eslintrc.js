@@ -7,7 +7,7 @@ module.exports = {
   extends: ['plugin:react/jsx-runtime', 'standard-with-typescript', 'plugin:i18next/recommended'],
   overrides: [
     {
-      files: ['**/src/**/*.test.{ts,tsx}'],
+      files: ['**/src/**/*.test.{ts,tsx}', '**/config/jest/**/*.{ts,tsx}'],
       rules: {
         'i18next/no-literal-string': 'off',
       },
