@@ -3,7 +3,6 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import cls from './Sidebar.module.scss';
 import { ThemeToggler } from 'widgets/ThemeToggler';
 import { LangToggler } from 'widgets/LangToggler';
-import { useTranslation } from 'react-i18next';
 import { Button, ButtonSize, ButtonTheme } from 'shared/ui/Button/Button';
 
 interface SidebarProps {
