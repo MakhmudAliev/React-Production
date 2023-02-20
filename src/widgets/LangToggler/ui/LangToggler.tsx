@@ -1,6 +1,6 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
-import { Button, ThemeButton } from 'shared/ui/Button/Button';
+import { Button, ButtonTheme } from 'shared/ui/Button/Button';
 
 interface LangTogglerProps {
   className?: string;
@@ -14,7 +14,7 @@ export const LangToggler = ({ className }: LangTogglerProps) => {
     i18n.changeLanguage(i18n.language === 'en' ? 'fr' : 'en');
   };
   return (
-    <Button theme={ThemeButton.CLEAR} onClick={toggleLang} className={classNames('', {}, [className])}>
+    <Button theme={ButtonTheme.CLEAR} onClick={toggleLang} className={classNames('', {}, [className])}>
       {t('lang')}
     </Button>
   );

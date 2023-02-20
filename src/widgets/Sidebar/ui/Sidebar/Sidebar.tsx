@@ -4,6 +4,7 @@ import cls from './Sidebar.module.scss';
 import { ThemeToggler } from 'widgets/ThemeToggler';
 import { LangToggler } from 'widgets/LangToggler';
 import { useTranslation } from 'react-i18next';
+import { Button, ButtonSize, ButtonTheme } from 'shared/ui/Button/Button';
 
 interface SidebarProps {
   className?: string;
@@ -12,13 +13,18 @@ interface SidebarProps {
 export const Sidebar = ({ className }: SidebarProps) => {
   const [collapsed, setCollapsed] = useState(false);
 
-  const { t } = useTranslation();
-
   return (
     <div data-testid="sidebar" className={classNames(cls.Sidebar, { [cls.collapsed]: collapsed }, [className])}>
-      <button data-testid="sidebar-toggle" onClick={() => setCollapsed(prev => !prev)}>
-        {t('toggle')}
-      </button>
+      <Button
+        data-testid="sidebar-toggle"
+        onClick={() => setCollapsed(prev => !prev)}
+        className={cls.collapseBtn}
+        theme={ButtonTheme.BACKGROUND_INVERTED}
+        square
+        size={ButtonSize.L}
+      >
+        {collapsed ? '>' : '<'}
+      </Button>
       <div className={cls.togglers}>
         <ThemeToggler />
         <LangToggler className={cls.lang} />

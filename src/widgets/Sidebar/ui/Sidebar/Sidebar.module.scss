@@ -6,10 +6,6 @@
   transition: width 0.3s;
 }
 
-.collapsed {
-  width: var(--sidebar-width-collapsed);
-}
-
 .togglers {
   position: absolute;
   bottom: 20px;
@@ -20,4 +16,22 @@
 
 .lang {
   margin-left: 20px;
+}
+
+.collapsed {
+  width: var(--sidebar-width-collapsed);
+
+  .togglers {
+    flex-direction: column;
+  }
+
+  .lang {
+    margin-left: 0;
+  }
+}
+
+.collapseBtn {
+  position: absolute;
+  bottom: 32px;
+  right: -32px;
 }
