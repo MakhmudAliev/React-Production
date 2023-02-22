@@ -18,7 +18,7 @@ module.exports = {
     sourceType: 'module',
     project: 'tsconfig.json',
   },
-  plugins: ['react', 'i18next', 'jest', '@typescript-eslint'],
+  plugins: ['react', 'i18next', 'jest', '@typescript-eslint', 'react-hooks'],
   rules: {
     'comma-dangle': [
       'error',
@@ -41,6 +41,9 @@ module.exports = {
     '@typescript-eslint/space-before-function-paren': 'off',
     '@typescript-eslint/no-confusing-void-expression': 'off',
     'i18next/no-literal-string': 2,
+    'react-hooks/rules-of-hooks': 'error',
+    'react-hooks/exhaustive-deps': 'error',
+    '@typescript-eslint/consistent-type-assertions': 'off',
   },
   globals: {
     __IS_DEV__: true,

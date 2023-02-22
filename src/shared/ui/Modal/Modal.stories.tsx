@@ -1,25 +1,28 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { AppLink } from './AppLink';
+import { Modal } from './Modal';
 import { ThemeDecorator } from 'shared/config/storybook/decorators/ThemeDecorator';
 import { Theme } from 'app/providers/ThemeProvider';
 
 export default {
-  title: 'shared/AppLink',
-  component: AppLink,
+  title: 'shared/Modal',
+  component: Modal,
   argTypes: {
     backgroundColor: { control: 'color' },
   },
-  args: {
-    to: '/',
-    children: 'About',
-  },
-} as ComponentMeta<typeof AppLink>;
+} as ComponentMeta<typeof Modal>;
 
-const Template: ComponentStory<typeof AppLink> = args => <AppLink {...args} />;
+const Template: ComponentStory<typeof Modal> = args => <Modal {...args} />;
 
 export const Light = Template.bind({});
-Light.args = {};
+Light.args = {
+  children: 'TEXT',
+  isOpen: true,
+};
+Light.decorators = [ThemeDecorator(Theme.LIGHT)];
 
 export const Dark = Template.bind({});
-Dark.args = {};
+Dark.args = {
+  children: 'TEXT',
+  isOpen: true,
+};
 Dark.decorators = [ThemeDecorator(Theme.DARK)];
