@@ -1,4 +1,5 @@
 import { fireEvent, render, screen } from '@testing-library/react';
+import { BrowserRouter } from 'react-router-dom';
 import { Sidebar } from 'widgets/Sidebar';
 
 jest.mock('react-i18next', () => ({
@@ -17,14 +18,21 @@ jest.mock('react-i18next', () => ({
   },
 }));
 
+const customRender = () =>
+  render(
+    <BrowserRouter>
+      <Sidebar />
+    </BrowserRouter>
+  );
+
 describe('Sidebar', () => {
   test('should render', () => {
-    render(<Sidebar />);
+    customRender();
     expect(screen.getByTestId('sidebar')).toBeInTheDocument();
   });
 
   test('should toggle', () => {
-    render(<Sidebar />);
+    customRender();
     const toggleBtn = screen.getByTestId('sidebar-toggle');
     fireEvent.click(toggleBtn);
 
