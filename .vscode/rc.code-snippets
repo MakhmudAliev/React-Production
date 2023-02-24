@@ -14,4 +14,16 @@
   // 		"$2"
   // 	],
   // 	"description": "Log output to console"
+  "Create test": {
+    "prefix": "tst",
+    "body": [
+      "describe('${1:$TM_FILENAME_BASE}', () => {",
+      "  test('should', () => {",
+      "    expect(${1:$TM_FILENAME_BASE}).toEqual();",
+      "  });",
+      "});",
+      ""
+    ],
+    "description": ""
+  }
 }
