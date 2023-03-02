@@ -1,30 +1,40 @@
 const fs = require('fs');
 const jsonServer = require('json-server');
 const path = require('path');
+const cors = require('cors');
 
 const server = jsonServer.create();
 const router = jsonServer.router(path.resolve(__dirname, 'db.json'));
 
+const middlewares = jsonServer.defaults({ noCors: true });
+server.use(middlewares);
+
+server.use(cors());
+
 // artificial delay
 server.use(async (req, res, next) => {
-  await new Promise(res => {
+  await new Promise(() => {
     setTimeout(res, 800);
   });
   next();
 });
 
 // user authorization
+// server.use((req, res, next) => {
+//   if (!req.headers.authorization) {
+//     return res.status(403).json({ message: 'AUTH ERROR' });
+//   }
+//   next();
+// });
+
+server.use(jsonServer.bodyParser);
+
 server.use((req, res, next) => {
-  if (!req.headers.authorization) {
-    return res.status(403).json({ message: 'AUTH ERROR' });
+  if (req.method === 'POST') {
+    req.body.createdAt = Date.now();
   }
   next();
 });
-
-const middlewares = jsonServer.defaults();
-
-// Use default router
-server.use(router);
 
 // Login endpoint
 server.post('/login', (req, res) => {
@@ -41,16 +51,8 @@ server.post('/login', (req, res) => {
   return res.status(403).json({ message: 'AUTH_ERROR' });
 });
 
-// To handle POST, PUT and PATCH you need to use a body-parser
-// You can use the one used by JSON Server
-server.use(jsonServer.bodyParser);
-server.use((req, res, next) => {
-  if (req.method === 'POST') {
-    req.body.createdAt = Date.now();
-  }
-  // Continue to JSON Server router
-  next();
-});
+// Use default router
+server.use(router);
 
 server.listen(8000, () => {
   console.log('JSON Server is running on port 8000');

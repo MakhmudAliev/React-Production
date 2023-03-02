@@ -4,15 +4,22 @@ import { AppRouter } from './providers/router';
 import { Navbar } from 'widgets/Navbar';
 import { Sidebar } from 'widgets/Sidebar';
 import { classNames } from 'shared/lib/classNames/classNames';
+import { useDispatch } from 'react-redux';
+import { userActions } from 'entities/User/model/slices/UserSlice';
 // import { useTranslation } from 'react-i18next';
 
 const App = () => {
   const { theme } = useTheme();
   // const { t } = useTranslation();
+  const dispatch = useDispatch();
 
   useEffect(() => {
     document.body.className = theme;
   }, [theme]);
+
+  useEffect(() => {
+    dispatch(userActions.initAuthData());
+  }, [dispatch]);
 
   return (
     <div className={classNames('app', {}, [theme])}>
