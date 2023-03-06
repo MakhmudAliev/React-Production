@@ -1,12 +1,13 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import { Button, ButtonTheme } from 'shared/ui/Button/Button';
+import { memo } from 'react';
 
 interface LangTogglerProps {
   className?: string;
 }
 
-export const LangToggler = ({ className }: LangTogglerProps) => {
+export const LangToggler = memo(({ className }: LangTogglerProps) => {
   const { t, i18n } = useTranslation();
 
   const toggleLang = () => {
@@ -18,4 +19,4 @@ export const LangToggler = ({ className }: LangTogglerProps) => {
       {t('lang')}
     </Button>
   );
-};
+});

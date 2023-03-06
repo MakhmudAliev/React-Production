@@ -1,29 +1,25 @@
-import { useState } from 'react';
+import { memo, useMemo, useState } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
-import cls from './Sidebar.module.scss';
 import { ThemeToggler } from 'widgets/ThemeToggler';
 import { LangToggler } from 'widgets/LangToggler';
 import { Button, ButtonSize, ButtonTheme } from 'shared/ui/Button/Button';
-import { AppLink, AppLinkTheme } from 'shared/ui/AppLink/AppLink';
-import { useTranslation } from 'react-i18next';
+import { SidebarItemList } from '../../../Sidebar/model/items';
+import { SidebarItem } from '../SidebarItem/SidebarItem';
+import cls from './Sidebar.module.scss';
 
 interface SidebarProps {
   className?: string;
 }
 
-export const Sidebar = ({ className }: SidebarProps) => {
-  const { t } = useTranslation();
-
+export const Sidebar = memo(({ className }: SidebarProps) => {
   const [collapsed, setCollapsed] = useState(false);
+
+  const itemsList = useMemo(() => SidebarItemList.map(item => <SidebarItem item={item} key={item.path} />), []);
 
   return (
     <div data-testid="sidebar" className={classNames(cls.Sidebar, { [cls.collapsed]: collapsed }, [className])}>
-      <AppLink theme={AppLinkTheme.SECONDARY} to="/">
-        {t('main')}
-      </AppLink>
-      <AppLink theme={AppLinkTheme.SECONDARY} to="/about">
-        {t('about')}
-      </AppLink>
+      <nav className={cls.navbar}>{itemsList}</nav>
+
       <Button
         data-testid="sidebar-toggle"
         onClick={() => setCollapsed(prev => !prev)}
@@ -40,4 +36,4 @@ export const Sidebar = ({ className }: SidebarProps) => {
       </div>
     </div>
   );
-};
+});

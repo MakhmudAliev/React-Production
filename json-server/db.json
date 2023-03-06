@@ -8,5 +8,14 @@
       "password": "123"
     }
   ],
-  "profile": { "name": "typicode" }
+  "profile": {
+    "first": "Makhmud",
+    "lastname": "Aliev",
+    "age": 37,
+    "currency": "CAD",
+    "country": "Canada",
+    "city": "Kitchener",
+    "username": "admin",
+    "avatar": "https://www.pngmart.com/files/22/User-Avatar-Profile-PNG-Pic.png"
+  }
 }

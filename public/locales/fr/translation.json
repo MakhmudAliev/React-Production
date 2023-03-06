@@ -1,3 +1,9 @@
 {
-  "lang": "FR"
+  "lang": "FR",
+  "main-page": "Page d'accueil",
+  "profile-page": "Page de profil",
+  "main": "Principal",
+  "about": "À propos",
+  "profile": "Profil",
+  "sign-in": "S'identifier"
 }

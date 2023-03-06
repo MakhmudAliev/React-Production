@@ -3,12 +3,13 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import LightThemeIcon from 'shared/assets/icons/theme-light.svg';
 import DarkThemeIcon from 'shared/assets/icons/theme-dark.svg';
 import { Button, ButtonTheme } from 'shared/ui/Button/Button';
+import { memo } from 'react';
 
 interface ThemeTogglerProps {
   className?: string;
 }
 
-export const ThemeToggler = ({ className }: ThemeTogglerProps) => {
+export const ThemeToggler = memo(({ className }: ThemeTogglerProps) => {
   const { theme, toggleTheme } = useTheme();
 
   return (
@@ -16,4 +17,4 @@ export const ThemeToggler = ({ className }: ThemeTogglerProps) => {
       {theme === Theme.DARK ? <LightThemeIcon /> : <DarkThemeIcon />}
     </Button>
   );
-};
+});

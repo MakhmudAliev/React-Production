@@ -1,3 +1,9 @@
 {
-  "lang": "EN"
+  "lang": "EN",
+  "main-page": "Main Page",
+  "profile-page": "Profile Page",
+  "main": "Main",
+  "about": "About",
+  "profile": "Profile",
+  "sign-in": "Sign In"
 }
