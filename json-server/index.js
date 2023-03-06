@@ -12,12 +12,12 @@ server.use(middlewares);
 server.use(cors());
 
 // artificial delay
-server.use(async (req, res, next) => {
-  await new Promise(() => {
-    setTimeout(res, 800);
-  });
-  next();
-});
+// server.use(async (req, res, next) => {
+//   await new Promise(() => {
+//     setTimeout(res, 800);
+//   });
+//   next();
+// });
 
 // user authorization
 // server.use((req, res, next) => {
