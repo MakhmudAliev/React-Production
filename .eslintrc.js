@@ -46,6 +46,7 @@ module.exports = {
     '@typescript-eslint/consistent-type-assertions': 'off',
     '@typescript-eslint/ban-ts-comment': 'off',
     '@typescript-eslint/no-misused-promises': 'off',
+    'no-undef': 'off',
   },
   globals: {
     __IS_DEV__: true,

@@ -5,5 +5,8 @@
   "main": "Main",
   "about": "About",
   "profile": "Profile",
-  "sign-in": "Sign In"
+  "sign-in": "Sign In",
+  "increment": "increment",
+  "decrement": "decrement",
+  "sign out": "Sign Out"
 }

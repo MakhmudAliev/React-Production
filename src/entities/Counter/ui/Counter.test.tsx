@@ -1,7 +1,6 @@
 import { fireEvent, render, screen } from '@testing-library/react';
 import { Counter } from './Counter';
 import { StateSchema, createReduxStore } from 'app/providers/StoreProvider';
-import { DeepPartial } from '@reduxjs/toolkit';
 import { Provider } from 'react-redux';
 
 jest.mock('react-i18next', () => ({
