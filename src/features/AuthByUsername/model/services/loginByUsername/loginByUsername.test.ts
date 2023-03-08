@@ -46,7 +46,7 @@ describe('loginByUsername', () => {
     const userData = { username: 'username', id: '1' };
     mockedAxios.post.mockReturnValue(Promise.resolve({ data: userData }));
 
-    const thunk = new TestAsyncThunk(loginByUsername);
+    const thunk = new TestAsyncThunk(loginByUsername, mockedAxios);
     const result = await thunk.callThunk({ username: '123', password: '123' });
 
     expect(mockedAxios.post).toHaveBeenCalled();
@@ -57,7 +57,7 @@ describe('loginByUsername', () => {
   });
   test('should handle 403 status response', async () => {
     mockedAxios.post.mockReturnValue(Promise.resolve({ status: 403 }));
-    const thunk = new TestAsyncThunk(loginByUsername);
+    const thunk = new TestAsyncThunk(loginByUsername, mockedAxios);
     const result = await thunk.callThunk({ username: '123', password: '123' });
 
     expect(mockedAxios.post).toHaveBeenCalled();

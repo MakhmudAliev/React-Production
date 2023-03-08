@@ -6,11 +6,9 @@ import { Sidebar } from 'widgets/Sidebar';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useDispatch } from 'react-redux';
 import { userActions } from 'entities/User/model/slices/UserSlice';
-// import { useTranslation } from 'react-i18next';
 
 const App = () => {
   const { theme } = useTheme();
-  // const { t } = useTranslation();
   const dispatch = useDispatch();
 
   useEffect(() => {

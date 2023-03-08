@@ -9,13 +9,13 @@ import 'app/styles/index.scss';
 
 render(
   <ErrorBoundary>
-    <StoreProvider>
-      <BrowserRouter>
+    <BrowserRouter>
+      <StoreProvider>
         <ThemeProvider>
           <App />
         </ThemeProvider>
-      </BrowserRouter>
-    </StoreProvider>
+      </StoreProvider>
+    </BrowserRouter>
   </ErrorBoundary>,
   document.getElementById('root')
 );
