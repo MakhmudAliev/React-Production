@@ -1,7 +1,6 @@
-import { createSlice } from '@reduxjs/toolkit';
-// import { User, UserSchema } from '../types/userSchema';
-// import { USER_LOCALSTORAGE_KEY } from 'shared/const/localStorage';
-import { ProfileSchema } from '../types/profile';
+import { PayloadAction, createSlice } from '@reduxjs/toolkit';
+import { Profile, ProfileSchema } from '../types/profile';
+import { fetchProfileData } from '../services/fetchProfileData/fetchProfileData';
 
 const initialState: ProfileSchema = { data: null, isLoading: false, error: undefined, readonly: true };
 
@@ -9,19 +8,24 @@ const profileSlice = createSlice({
   name: 'profile',
   initialState,
   reducers: {
-    // setAuthData: (state, action: PayloadAction<Profile>) => {
-    //   state.authData = action.payload;
-    // },
-    // initAuthData: state => {
-    //   const user = localStorage.getItem(USER_LOCALSTORAGE_KEY);
-    //   if (user) {
-    //     state.authData = JSON.parse(user);
-    //   }
-    // },
-    // logout: state => {
-    //   state.authData = undefined;
-    //   localStorage.removeItem(USER_LOCALSTORAGE_KEY);
-    // },
+    setProfileData: (state, action: PayloadAction<Profile>) => {
+      state.data = action.payload;
+    },
+  },
+  extraReducers: builder => {
+    builder
+      .addCase(fetchProfileData.pending, state => {
+        state.error = undefined;
+        state.isLoading = true;
+      })
+      .addCase(fetchProfileData.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.data = action.payload;
+      })
+      .addCase(fetchProfileData.rejected, (state, action) => {
+        state.isLoading = false;
+        state.error = action.payload;
+      });
   },
 });
 

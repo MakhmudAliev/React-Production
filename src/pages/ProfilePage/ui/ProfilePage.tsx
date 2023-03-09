@@ -1,17 +1,23 @@
-import { profileReducer } from 'entities/Profile';
-import { FC, ReactNode } from 'react';
-import { useTranslation } from 'react-i18next';
+import { fetchProfileData, profileReducer } from 'entities/Profile';
+import { ProfileCard } from 'entities/Profile/ui/ProfileCard';
+import { FC, ReactNode, useEffect } from 'react';
 import { DynamicModuleLoader } from 'shared/lib/components/DynamicModuleLoader/DynmicModuleLoader';
+import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 
 interface ProfilePageProps {
   children?: ReactNode;
 }
 
 const ProfilePage: FC<ProfilePageProps> = () => {
-  const { t } = useTranslation();
+  const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    void dispatch(fetchProfileData());
+  }, [dispatch]);
+
   return (
     <DynamicModuleLoader name="profile" reducer={profileReducer} removeAfterUnmount>
-      <div>{t('profile-page')}</div>
+      <ProfileCard />
     </DynamicModuleLoader>
   );
 };
