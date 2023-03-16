@@ -27,7 +27,6 @@ export class ErrorBoundary extends React.Component<ErrorBoundaryProps, ErrorBoun
 
   render() {
     if (this.state.hasError) {
-      // You can render any custom fallback UI
       return (
         <Suspense fallback="">
           <PageError />

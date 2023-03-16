@@ -18,4 +18,12 @@ export const SidebarItemList: SidebarItemType[] = [
     path: RoutePaths.profile,
     text: AppRoutes.PROFILE,
   },
+  {
+    path: RoutePaths.articles,
+    text: AppRoutes.ARTICLES,
+  },
+  {
+    path: RoutePaths['article-details'],
+    text: AppRoutes.ARTICLE_DETAILS,
+  },
 ];

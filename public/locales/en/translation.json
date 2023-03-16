@@ -8,5 +8,7 @@
   "sign-in": "Sign In",
   "increment": "increment",
   "decrement": "decrement",
-  "sign out": "Sign Out"
+  "sign out": "Sign Out",
+  "articles": "Articles",
+  "article-details": "Article Details"
 }

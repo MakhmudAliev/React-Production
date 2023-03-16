@@ -23,7 +23,6 @@ export const Input = memo(
 
     useEffect(() => {
       if (autoFocus) {
-        console.log('🚀 ~ ref:', ref.current);
         ref.current.focus();
       }
     }, [autoFocus]);

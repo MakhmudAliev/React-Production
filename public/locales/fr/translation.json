@@ -5,5 +5,7 @@
   "main": "Principal",
   "about": "À propos",
   "profile": "Profil",
-  "sign-in": "S'identifier"
+  "sign-in": "S'identifier",
+  "articles": "Articles",
+  "article-details": "Article Details"
 }
